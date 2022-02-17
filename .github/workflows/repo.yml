@@ -1,0 +1,44 @@
+name: Repo site CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  DEPLOY_VER: ${{ github.sha }}
+  MONTH: "Februrary"
+  DAY_OF_THE_MONTH: "16"
+  YEAR: "2022" 
+  FAVORITE_DAY_OF_WEEK: ${{ secrets.FAVORITE_DAY_OF_WEEK }}
+
+jobs:
+  stage1:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello World
+    steps:
+    - uses: actions/checkout@v2
+    - name: Listing current dir files and folder
+      run: for i in $(ls .); do echo $i; done
+    - name: Print content of Log file
+      run: cat log.txt
+    - name: Print DEPLOY_VER variable
+      run: echo "Hello from $DEPLOY_VER commit"
+
+  stage2:
+    needs: stage1
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Echo day of the month 
+      run: echo $DAY_OF_THE_MONTH
+    - name: Print System Date
+      run: date
+    - name: Print Variables content
+      run: echo -e "Day - $DAY_OF_THE_MONTH\nMonth - $MONTH\nYear - $YEAR"
+    - name: Print my favorite day of week
+      run: echo "My favorite day of week is $FAVORITE_DAY_OF_WEEK"
+    - name: We are getting *** becouse of
+      run: echo "Actions Secrets is used for hiding datas. Secrets will not be available during execution."
