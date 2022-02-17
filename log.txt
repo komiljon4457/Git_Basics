@@ -1,0 +1,17 @@
+commit 64f78d0836fa83276c1d0a61e40db0bb4175b702
+Author: komiljon4457 <justinyangiboev@gmail.com>
+Date:   Thu Feb 17 16:14:40 2022 +0500
+
+    Test file  added
+
+commit d7313d65c87416144fac58d0971d79015109983a
+Author: komiljon4457 <justinyangiboev@gmail.com>
+Date:   Thu Feb 17 16:07:42 2022 +0500
+
+    Task1 director and Reeadme file added
+
+commit 05692ff0cc5382b4b784a8ecfd2fa2f78f8a062c
+Author: Justin_Infinite <72872029+komiljon4457@users.noreply.github.com>
+Date:   Thu Feb 17 13:04:40 2022 +0500
+
+    Initial commit
