@@ -23,7 +23,7 @@ jobs:
     - name: Listing current dir files and folder
       run: for i in $(ls .); do echo $i; done
     - name: Print content of Log file
-      run: cat log.txt
+      run: cat Task1/log.txt
     - name: Print DEPLOY_VER variable
       run: echo "Hello from $DEPLOY_VER commit"
 
