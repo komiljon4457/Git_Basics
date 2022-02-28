@@ -62,22 +62,13 @@ resource "aws_security_group" "Ubuntu" {
   }
 
 }
-# Redhat Enterprice 2 AMI image
-data "aws_ami" "redhat-linux-8" {
-  most_recent = true
-  owners      = ["309956199498"]
-  filter {
-    name   = "name"
-    values = ["RHEL-8.*"]
-  }
 }
-resource "aws_instance" "rhel-server" {
-  ami                    = data.aws_ami.redhat-linux-8.id
+resource "aws_instance" "amazon-linux" {
+  ami                    = "ami-02a45d709a415958a"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.SecurityGroup.id]
   subnet_id              = aws_subnet.private-subnet.id
-  key_name = "accesser"
   tags = {
-    Name = var.rhel_name
+    Name = "Amazon Linux"
   }
 }
