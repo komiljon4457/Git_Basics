@@ -63,6 +63,17 @@ resource "aws_security_group" "Ubuntu" {
 
 }
 }
+resource "aws_security_group" "SecurityGroup" {
+  description = "Instance Inbound traffic"
+  vpc_id = aws_vpc.exadel-vpc.id
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_instance" "amazon-linux" {
   ami                    = "ami-02a45d709a415958a"
   instance_type          = "t2.micro"
